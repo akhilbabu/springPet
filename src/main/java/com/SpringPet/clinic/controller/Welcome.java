@@ -6,14 +6,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@ResponseBody
 public class Welcome {
 	
 	
 	@RequestMapping("/welcome")
-	public String welcomeController()
+	public String welcome()
 	{
 		return "hello";
+	}
+	
+	@RequestMapping("/home")
+	public String home()
+	{
+		return "home";
 	}
 
 }
