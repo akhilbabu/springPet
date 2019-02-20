@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-public class Welcome {
+public class login {
 	
 	
 	@RequestMapping("/welcome")
@@ -19,9 +19,17 @@ public class Welcome {
 	
 	
 	@RequestMapping("/home")
-	public String home(Model model)
+	public String home()
 	{
-		return "home";
+		return "login";
 	}
 
+	
+	
+	@RequestMapping("/login")
+	public void login(Model model)
+	{
+		System.out.println("user logged in");
+	}
+	
 }
