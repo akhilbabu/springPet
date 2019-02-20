@@ -13,38 +13,31 @@ import org.springframework.web.servlet.ModelAndView;
 import com.SpringPet.clinic.model.UserDTO;
 
 @Controller
-public class login {
-	
-	
+public class LoginController {
+
 	@RequestMapping("/welcome")
 	@ResponseBody
-	public String welcome()
-	{
+	public String welcome() {
 		return "hello";
 	}
-	
-	
+
 	@GetMapping("/login")
-	public String home(Model model)
-	{
-		UserDTO userdto=new  UserDTO("","");
+	public String home(Model model) {
+		UserDTO userdto = new UserDTO("", "");
 		model.addAttribute("userdto", userdto);
-		
+
 		return "login";
 	}
 
-	
-	
 	@PostMapping("/login")
-	public ModelAndView checkLogin(@ModelAttribute UserDTO userdto)
-	{
+	public ModelAndView checkLogin(@ModelAttribute UserDTO userdto) {
 		System.out.println(userdto.getUsername());
 		System.out.println(userdto.getPassword());
-		ModelAndView mAndV=new ModelAndView();
-		mAndV.setViewName("result");
+		ModelAndView mAndV = new ModelAndView();
+		mAndV.setViewName("home");
 		mAndV.addObject("username", userdto.getUsername());
 		return mAndV;
-		
+
 	}
-	
+
 }
