@@ -8,19 +8,19 @@
 
 <h2>Login Form</h2>
 
-<form action="#"  method="post">
+<form action="#" th:action="@{/login}" th:object="${userdto}" method="post">
   <div class="imgcontainer">
     <img src="images/img_avatar2.png" alt="Avatar" class="avatar">
   </div>
 
   <div class="container">
     <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required> 
- <!--  <input type="text" th:field="${userObject.username}" placeholder="Enter Username" required> -->
+    <!--  <input type="text" placeholder="Enter Username" name="uname" required>  -->
+ <input type="text" th:field="*{username}" placeholder="Enter Username" >
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>  
-    <!--  <input type="text" th:field="${userObject.password}" type="password" placeholder="Enter Password" required>  -->  
+ <!--     <input type="password" placeholder="Enter Password" name="psw" required>   --> 
+    <input  th:field="*{password}" type="password" placeholder="Enter Password" required>  
     <button type="submit">Login</button>
     <label>
       <input type="checkbox" checked="checked" name="remember"> Remember me
