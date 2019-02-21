@@ -1,10 +1,11 @@
 package com.SpringPet.clinic.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.Mapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,9 +17,8 @@ import com.SpringPet.clinic.services.LoginService;
 
 @Controller
 public class LoginController {
-	
+	public static Logger LOGGER = LoggerFactory.getLogger(LoginController.class);
 	public LoginService service;
-	
 
 	public LoginController(@Qualifier("testlogin") LoginService service) {
 		super();
@@ -35,7 +35,7 @@ public class LoginController {
 	public String home(Model model) {
 		UserDTO userdto = new UserDTO("", "");
 		model.addAttribute("userdto", userdto);
-
+		LOGGER.info("log in page >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 		return service.loginToHome();
 	}
 
