@@ -21,7 +21,7 @@ public class LoginController {
 		return "hello";
 	}
 
-	@GetMapping("/login")
+	@GetMapping("/")
 	public String home(Model model) {
 		UserDTO userdto = new UserDTO("", "");
 		model.addAttribute("userdto", userdto);

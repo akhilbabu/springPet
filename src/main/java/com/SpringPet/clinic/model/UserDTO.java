@@ -3,6 +3,8 @@
  */
 package com.SpringPet.clinic.model;
 
+import javax.validation.constraints.Email;
+
 /**
  * @author akhil.babu
  *
@@ -10,7 +12,7 @@ package com.SpringPet.clinic.model;
 public class UserDTO {
 
 	
-
+    @Email
 	private String username;
 	private String password;
 	
