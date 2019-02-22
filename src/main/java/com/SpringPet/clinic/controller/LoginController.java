@@ -45,7 +45,7 @@ public class LoginController {
 		System.out.println(userdto.getPassword());
 		ModelAndView mAndV = new ModelAndView();
 		mAndV.setViewName("home");
-		mAndV.addObject("username", userdto.getUsername());
+//		mAndV.addObject("prods", );
 		return mAndV;
 
 	}
