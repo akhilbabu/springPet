@@ -15,6 +15,18 @@ public class ProductDTO {
 	private String price;
 	private String available;
 
+	public ProductDTO()
+	{
+		//default constructor
+	}
+	public ProductDTO( String name, String price, String available) {
+		super();
+//		this.productId = productId;
+		this.name = name;
+		this.price = price;
+		this.available = available;
+	}
+
 	public Integer getProductId() {
 		return productId;
 	}

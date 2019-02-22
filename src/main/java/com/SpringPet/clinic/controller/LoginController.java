@@ -2,6 +2,7 @@ package com.SpringPet.clinic.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,16 +14,21 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.SpringPet.clinic.model.UserDTO;
+import com.SpringPet.clinic.repository.ProductRepository;
 import com.SpringPet.clinic.services.LoginService;
 
 @Controller
 public class LoginController {
 	public static Logger LOGGER = LoggerFactory.getLogger(LoginController.class);
 	public LoginService service;
+	
+	
+	public ProductRepository repo;
 
-	public LoginController(@Qualifier("testlogin") LoginService service) {
+	public LoginController(@Qualifier("login") LoginService service,ProductRepository repo) {
 		super();
 		this.service = service;
+		this.repo=repo;
 	}
 
 	@RequestMapping("/welcome")
@@ -45,7 +51,7 @@ public class LoginController {
 		System.out.println(userdto.getPassword());
 		ModelAndView mAndV = new ModelAndView();
 		mAndV.setViewName("home");
-//		mAndV.addObject("prods", );
+		mAndV.addObject("prods",repo.findAll() );
 		return mAndV;
 
 	}
